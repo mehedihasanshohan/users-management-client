@@ -30,6 +30,8 @@ function App() {
     .then(data => {
       console.log('Server response:', data);
 
+      const newUsers = [...users, data];
+      setUsers(newUsers);
       // Optional: Update UI or clear form
       form.reset();
     });
@@ -38,10 +40,6 @@ function App() {
   return (
     <>
       <h2>user management system</h2>
-      <h3>users: {users.length}</h3>
-      <div>
-        {users.map(user => <p>{user.id}: {user.name}: {user.email}</p>)}
-      </div>
       <form onSubmit={handleAddUser}>
         <input type="text" name='name' id=''/>
         <br />
